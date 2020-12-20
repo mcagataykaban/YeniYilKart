@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mutlu Yıllar!</title>
+    <link rel="icon" href="@Url.Content("~/images/favicon_hat.ico")" />
+    <link href="~/Content/image-picker.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+
+
+    <audio hidden id="bells" controls loop>
+        <source src="~/musics/bells.mp3" type="audio/mpeg" />
+    </audio>
+
+
+    <nav style="font-weight:700; background-color:#e9ecef" class="navbar navbar-expand-lg navbar-light nav-custom">
+
+        <button class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-danger logo" href="@Url.Action("Index","Home")">Yeni Yılınız Kutlu Olsun</a>
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="@Url.Action("Index","Home")">Anasayfa <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Kartlar/">Kart Oluştur</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="@Url.Action("Contact", "Home")">İletişim</a>
+                </li>
+
+            </ul>
+        </div>
+        <button class="btn btn-danger music-butonu" onclick="musicPlay()" id="btnMusic"><i id="iconClass" class="fas fa-play"></i></button>
+    </nav>
+
+
+
+
+    <div class="container body-content mt-5">
+        @RenderBody()
+        <hr />
+
+    </div>
+    <footer>
+        &copy; @DateTime.Now.Year - Mutlu Yıllar
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/music.js"></script>
+    <script src="~/Scripts/image-picker.js"></script>
+    <script src="~/Scripts/snow.js"></script>
+    <script>
+        $(".image-picker").imagepicker();
+
+    </script>
+
+
+
+</body>
+</html>
