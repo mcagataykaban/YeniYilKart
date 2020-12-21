@@ -76,8 +76,18 @@ namespace YeniYilKart.Controllers
         {
             var kart = db.Kartlar.FirstOrDefault(x => x.Id == id);
             string deneme = kart.Mesaj;
-            string mesaj1 = deneme.Substring(0, deneme.Length / 2);
-            string mesaj2 = deneme.Substring((deneme.Length / 2) + 1);
+            string mesaj1;
+            string mesaj2;
+            if (deneme.Length > 200)
+            {
+                mesaj1 = deneme.Substring(0, deneme.Length / 2);
+                mesaj2 = deneme.Substring((deneme.Length / 2) + 1);
+            }
+            else
+            {
+                mesaj1 = deneme;
+                mesaj2 = "";
+            }
 
 
             Bitmap bmp = new Bitmap(Server.MapPath($"~/images/{kart.ResimAd}.png"));
